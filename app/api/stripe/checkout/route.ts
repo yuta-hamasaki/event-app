@@ -4,7 +4,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 export async function POST(request: NextRequest) {
   try {
 
-    // you can implement some basic check here like, is user valid or not
     const data = await request.json();
     const priceId = data.priceId;
     const checkoutSession: Stripe.Checkout.Session =
