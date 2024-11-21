@@ -1,7 +1,7 @@
 import React,{ReactNode} from 'react';
 
 export interface ButtonProps extends React.HTMLAttributes<Element> {
-  variant?: 'primary' | 'yellow' ;
+  variant?: 'primary' | 'yellow'| 'square';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -19,7 +19,7 @@ export default function Button ({
   const variantStyles = {
     primary: "bg-indigo-700 text-white hover:bg-indigo-600 focus:ring-blue-500",
     yellow: "bg-amber-400 hover:bg-amber-300 focus:ring-gray-500",
-    // outline: "border border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-300",
+    square: "bg-indigo-700 text-white hover:bg-indigo-600 focus:ring-blue-500 rounded-md",
     // ghost: "text-gray-700 hover:bg-gray-100 focus:ring-gray-300"
   };
 
