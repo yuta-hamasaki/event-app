@@ -1,10 +1,10 @@
 
-const pages = () => {
+
+export default function page(){
   return (
-    <div>
+    <>
       home
-    </div>
+    </>
   )
 }
 
-export default pages

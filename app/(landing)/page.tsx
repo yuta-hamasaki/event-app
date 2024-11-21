@@ -1,7 +1,11 @@
 import { STUFFS } from '@/lib/constats.index'
 import Button from "@/components/Button";
+import { getEvents } from '@/lib/client';
+import { Event } from '@/types/events';
 
-export default function Home() {
+export default async function page() {
+  const { contents } = await getEvents();
+  console.log(contents)
   return (
     <div className="text-center">
       {/* hero */}
@@ -19,7 +23,17 @@ export default function Home() {
         </div>
 
         {/* event cards */}
-        <div className="">
+        <div>
+          {contents.map((event:Event)=>(
+            <div key={event.id}>
+              <h1>{event.title['en-title']}</h1>
+              <p>{event.location['en-location']}</p>
+              <p>{event.date['en-date']}</p>
+            </div>
+          ))}
+
+
+
           {/* 
           {events.map((event)=>(
             <EventCards
@@ -51,12 +65,12 @@ export default function Home() {
         <p>some text  text is heres ome text  text is here some text  text is here</p>
 
         {/* stuff cards */}
-        <div className="">
+        <div >
           {STUFFS.map((item)=>(
-            <>
+            <div key={item.id}>
               <h1>{item.name}</h1>
               <p>{item.role}</p>
-            </>
+            </div>
           ))}
         </div>
       </section>
