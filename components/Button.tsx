@@ -1,26 +1,26 @@
 import React,{ReactNode} from 'react';
 
 export interface ButtonProps extends React.HTMLAttributes<Element> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'yellow' ;
   size?: 'sm' | 'md' | 'lg';
 }
 
 export default function Button ({ 
   children, 
   variant = 'primary', 
-  size = 'md', 
+  size = 'sm', 
   className = '', 
   ...props 
 }:ButtonProps) {
   // ベースのスタイル
-  const baseStyles = "rounded-md transition-all duration-200 focus:outline-none focus:ring-2";
+  const baseStyles = "rounded-full transition-all duration-200 focus:outline-none focus:ring-2 w-[200px] h-[45px] font-bold";
   
   // バリアントごとのスタイル
   const variantStyles = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
-    secondary: "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500",
-    outline: "border border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-300",
-    ghost: "text-gray-700 hover:bg-gray-100 focus:ring-gray-300"
+    primary: "bg-indigo-700 text-white hover:bg-indigo-600 focus:ring-blue-500",
+    yellow: "bg-amber-400 hover:bg-amber-300 focus:ring-gray-500",
+    // outline: "border border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-300",
+    // ghost: "text-gray-700 hover:bg-gray-100 focus:ring-gray-300"
   };
 
   // サイズごとのスタイル
