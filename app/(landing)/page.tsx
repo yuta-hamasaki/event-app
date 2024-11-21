@@ -53,6 +53,10 @@ export default async function page() {
         <Button
         variant='yellow'
         >Contact Us</Button>
+        <Button
+          variant='square'
+          className='m-2'
+          >test</Button>
       </section>
 
       {/* stuff section */}
