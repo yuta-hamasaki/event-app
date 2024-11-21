@@ -10,10 +10,17 @@ export default async function page() {
     <div className="text-center">
       {/* hero */}
       <section>
-        {/* <h1 className='text-black text-5xl font-bold'>Discover. Connect. Experience.</h1> */}
+        <h1 className='text-black text-5xl font-bold'>Discover. Connect. Experience.</h1>
         <p className='font-normal'>
-        {/* some text is here some text is here somesome text is here some text is here some text is here some text  text is here some text  text is here some text  text is here */}
+        some text is here some text is here somesome text is here some text is here some text is here some text  text is here some text  text is here some text  text is here
         </p>
+        <Button
+          className='m-2'
+          >Find events</Button>
+          <Button
+          variant='yellow'
+          className='m-2'
+          >Login</Button>
       </section>
       {/* Event section */}
       <section>
