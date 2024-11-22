@@ -1,10 +1,19 @@
 import { STUFFS } from '@/lib/constats.index'
 import Button from "@/components/Button";
-import { getEvents } from '@/lib/client';
+import {getEvents} from "@/lib/client"
 import { Event } from '@/types/events';
 
+
+interface Product extends Event {
+  price?: {
+    unit_amount: number;
+    currency: string;
+    id: string;
+  };
+}
+
 export default async function page() {
-  const { contents } = await getEvents();
+  const contents  = await getEvents();
   // console.log(contents)
   return (
     <div className="text-center">
@@ -31,11 +40,20 @@ export default async function page() {
 
         {/* event cards */}
         <div>
-          {contents.map((event:Event)=>(
+          {contents.map((event:Product)=>(
             <div key={event.id}>
               <h1>{event.title['en-title']}</h1>
               <p>{event.location['en-location']}</p>
               <p>{event.date['en-date']}</p>
+              {event.price && (
+              <dl className="mb-4">
+                <dd className="text-xl">
+                  {(event.price.unit_amount / 100).toLocaleString()}
+                  {event.price.currency.toUpperCase()}
+                </dd>
+              </dl>
+            )}
+
             </div>
           ))}
         </div>
