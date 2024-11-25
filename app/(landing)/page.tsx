@@ -1,4 +1,5 @@
-import { STUFFS } from '@/lib/constats.index'
+import { STUFFS } from '@/lib/constats.index';
+import Link from 'next/link';
 import Button from "@/components/Button";
 import {getEvents} from "@/lib/client"
 import { Event } from '@/types/events';
@@ -52,13 +53,14 @@ export default async function page() {
                   {event.price.currency.toUpperCase()}
                 </dd>
               </dl>
-            )}
-
+              )}
+              <Link href={`/events/${event.id}`}>
+                <Button>View More</Button>              
+              </Link>
             </div>
           ))}
         </div>
 
-        <Button>View More</Button>
       </section>
 
       {/* About us */}
