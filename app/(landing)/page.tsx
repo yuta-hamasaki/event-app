@@ -14,23 +14,27 @@ interface Product extends Event {
 }
 
 export default async function page() {
-  const contents  = await getEvents();
-  // console.log(contents)
+  const contents = await getEvents();
   return (
-    <div className="text-center">
+    <div className="flex flex-col items-center">
       {/* hero */}
-      <section>
-        <h1 className='text-black text-5xl font-bold'>Discover. Connect. Experience.</h1>
-        <p className='font-normal'>
-        some text is here some text is here somesome text is here some text is here some text is here some text  text is here some text  text is here some text  text is here
-        </p>
-        <Button
-          className='m-2'
-          >Find events</Button>
-          <Button
-          variant='yellow'
-          className='m-2'
-          >Login</Button>
+      <section className="w-full h-screen flex flex-col justify-center px-20 lg:px-44">
+        <main className="flex flex-col gap-5 md:gap-6 items-start sm:w-1/2">
+          <h1 className="flex flex-col leading-tight text-black text-5xl font-bold">
+            <span>Discover.</span>
+            <span>Connect.</span>
+            <span>Experience.</span>
+          </h1>
+          <p className="font-normal text-gray-600">
+            some text is here some text is here some text is here some text is
+            here some text is here some text text is here some text text is here
+            some text text is here
+          </p>
+          <div className="w-full flex gap-3 flex-col items-center sm:flex-row">
+            <Button>Find Events</Button>
+            <Button variant="yellow">Login</Button>
+          </div>
+        </main>
       </section>
       {/* Event section */}
       <section>
