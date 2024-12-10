@@ -68,19 +68,18 @@ export default async function page() {
       </section>
 
       {/* About us */}
-      <section>
-        <h3>About Us</h3>
-        <p>
-        {/* Our team consists of event planners, developers, and customer support specialists who believe in the power of live experiences. 
-        We’ve built this platform to help event organizers easily create, manage, and promote their events while providing attendees with a hassle-free ticketing experience. Our mission is to connect people with the events they love in the simplest way possible, ensuring a smooth and enjoyable journey from start to finish. */}
+      <section className="flex flex-col items-center justify-center gap-8 my-28 py-32 w-full bg-linkWater">
+        <h3 className="text-4xl font-bold">About <span className="text-blue-700">Us</span></h3>
+        <p className="w-full md:w-1/2 text-center">
+          Our team consists of event planners, developers, and customer support
+          specialists who believe in the power of live experiences. We’ve built
+          this platform to help event organizers easily create, manage, and
+          promote their events while providing attendees with a hassle-free
+          ticketing experience. Our mission is to connect people with the events
+          they love in the simplest way possible, ensuring a smooth and
+          enjoyable journey from start to finish.
         </p>
-        <Button
-        variant='yellow'
-        >Contact Us</Button>
-        <Button
-          variant='square'
-          className='m-2'
-          >test</Button>
+        <Button variant="yellow">Contact Us</Button>
       </section>
 
       {/* stuff section */}
