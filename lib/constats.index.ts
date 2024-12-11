@@ -10,26 +10,23 @@ export const NAV_LINKS = [
 export const STUFFS = [
   {
     id: "yuta-hamasaki",
-    name: 'Yuta Hamasaki',
-    img: "#",
+    name: "Yuta Hamasaki",
+    img: "/staff_sample2.png",
     role: "Founder",
-    description:"text"
   },
   {
     id: "risa",
-    name: 'Risa',
-    img: "#",
+    name: "Risa",
+    img: "/staff_sample1.png",
     role: "UI/UX designer, Frontend developer",
-    description:"text"
   },
   {
     id: "doble_dd",
-    name: 'DJ DeeDee',
-    img: "#",
+    name: "DJ DeeDee",
+    img: "/staff_sample3.png",
     role: "DJ",
-    description:"text"
   },
-]
+];
 
 // Footer
 export const Footer_LINKS = [
