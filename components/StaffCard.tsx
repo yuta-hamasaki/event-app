@@ -1,11 +1,5 @@
 import Image from "next/image";
-
-type StaffInfo = {
-  id: string;
-  name: string;
-  img: string;
-  role: string;
-};
+import { StaffInfo } from "@/types/staff";
 
 type StaffCardProps = {
   staff: StaffInfo;
