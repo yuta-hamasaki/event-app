@@ -83,21 +83,21 @@ export default async function page() {
       </section>
 
       {/* stuff section */}
-      <section>
-        <h3>Our Team</h3>
-        <p>some text  text is heres ome text  text is here some text  text is here</p>
+      <section className="flex flex-col items-center gap-10 my-32">
+        <div className="flex flex-col items-center">
+          <h3 className="text-4xl font-bold">Our Team</h3>
+          <p>
+            some text text is heres ome text text is here some text text is here
+          </p>
+        </div>
 
         {/* stuff cards */}
-        {/* <div >
-          {STUFFS.map((item)=>(
-            <div key={item.id}>
-              <h1>{item.name}</h1>
-              <p>{item.role}</p>
-            </div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+          {STUFFS.map((staff) => (
+            <StaffCard staff={staff} key={staff.id} />
           ))}
-        </div> */}
+        </div>
       </section>
-
     </div>
   );
 }
