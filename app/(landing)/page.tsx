@@ -39,7 +39,9 @@ export default async function page() {
       {/* Event section */}
       <section className="w-full px-9">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-4xl font-bold">Discover Events</h2>
+          <h2 className="text-4xl font-bold font-plus-jakarta-sans tracking-tight">
+            Discover Events
+          </h2>
           <p className="text-gray-600">
             some text text is heres ome text text is here some text text is here
           </p>
@@ -58,9 +60,12 @@ export default async function page() {
       </section>
 
       {/* About us */}
-      <section className="w-full h-screen flex flex-col items-center justify-center gap-8 bg-linkWater">
-        <h3 className="text-4xl font-bold px-9">
-          About <span className="text-blue-700">Us</span>
+      <section className="flex flex-col items-center justify-center gap-8 py-32 bg-linkWater">
+        <h3 className="text-4xl font-bold px-9 font-plus-jakarta-sans tracking-tight">
+          About{" "}
+          <span className="text-blue-700 font-plus-jakarta-sans tracking-tight">
+            Us
+          </span>
         </h3>
         <p className="w-full md:w-1/2 text-center px-9">
           Our team consists of event planners, developers, and customer support
@@ -76,9 +81,11 @@ export default async function page() {
 
       {/* stuff section */}
       <section className="w-full h-screen flex flex-col items-center px-9">
-        <div className="flex flex-col items-center py-16">
-          <h3 className="text-4xl font-bold">Our Team</h3>
-          <p>
+        <div className="flex flex-col gap-2 items-center py-16">
+          <h3 className="text-4xl font-bold font-plus-jakarta-sans tracking-tight">
+            Our Team
+          </h3>
+          <p className=" text-gray-600">
             some text text is heres ome text text is here some text text is here
           </p>
         </div>

@@ -13,6 +13,9 @@ export default {
         foreground: "var(--foreground)",
         linkWater: "#E8F1FA",
       },
+      fontFamily: {
+        "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+      },
     },
   },
   plugins: [],
