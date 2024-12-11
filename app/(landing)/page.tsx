@@ -18,14 +18,17 @@ export default async function page() {
   return (
     <div className="flex flex-col items-center">
       {/* hero */}
-      <section className="w-screen h-screen flex flex-col justify-center items-center px-9">
+      <section
+        className="w-screen h-screen flex flex-col justify-center items-center p-9 md:items-start md:px-56 bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero.png')" }}
+      >
         <main className="flex flex-col gap-5 md:gap-6 items-start sm:w-1/2">
           <h1 className="flex flex-col leading-tight text-black text-5xl font-bold">
             <span>Discover.</span>
             <span>Connect.</span>
             <span>Experience.</span>
           </h1>
-          <p className="font-normal text-gray-600">
+          <p className="font-normal text-black">
             some text is here some text is here some text is here some text is
             here some text is here some text text is here some text text is here
             some text text is here
@@ -38,7 +41,7 @@ export default async function page() {
       </section>
       {/* Event section */}
       <section className="w-full px-9">
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 pt-16">
           <h2 className="text-4xl font-bold font-plus-jakarta-sans tracking-tight">
             Discover Events
           </h2>
@@ -85,7 +88,7 @@ export default async function page() {
           <h3 className="text-4xl font-bold font-plus-jakarta-sans tracking-tight">
             Our Team
           </h3>
-          <p className=" text-gray-600">
+          <p className="text-center text-gray-600">
             some text text is heres ome text text is here some text text is here
           </p>
         </div>

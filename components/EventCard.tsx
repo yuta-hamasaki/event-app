@@ -18,9 +18,9 @@ interface EventCardProps {
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
   return (
-    <div className="flex flex-col sm:flex-row mt-4 border w-full sm:w-2/3 lg:w-1/2 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out rounded-lg">
+    <div className="flex flex-col max-w-[350px] sm:max-w-none sm:flex-row mt-4 border w-full md:w-2/3 lg:w-1/2 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out rounded-lg ">
       {/* Image Section */}
-      <div className="relative w-full sm:w-1/3 md:w-1/3 h-48 md:h-44 overflow-hidden rounded-l-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+      <div className="relative w-full sm:w-1/3 md:w-1/3 h-48 md:h-44 overflow-hidden rounded-t-lg sm:rounded-l-lg sm:rounded-t-none shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
         <Image
           src={event.image || "/image_sample.png"}
           alt="event image"
@@ -45,7 +45,9 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
             </h4>
           )}
           <div className="flex flex-col gap-2">
-            <h2 className=" text-lg md:text-base lg:text-lg font-semibold">{event.title["en-title"]}</h2>
+            <h2 className=" text-lg md:text-base lg:text-lg font-semibold">
+              {event.title["en-title"]}
+            </h2>
             <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-3">
               <div className="flex flex-col">
                 <p className="text-sm">{event.date["en-date"]}</p>
@@ -55,7 +57,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                 <Link href={`/events/${event.id}`}>
                   <Button
                     variant="square"
-                    className="sm:w-auto w-[200px] lg:w-[150px]"
+                    className="sm:w-auto w-[150px] lg:w-[150px]"
                   >
                     View More
                   </Button>
