@@ -4,6 +4,8 @@ import Button from "@/components/Button";
 import {getEvents} from "@/lib/client"
 import { Event } from '@/types/events';
 
+import EventCard from '@/components/EventCard';
+import StaffCard from '@/components/StaffCard';
 
 interface Product extends Event {
   price?: {
@@ -19,7 +21,7 @@ export default async function page() {
     <div className="flex flex-col items-center">
       {/* hero */}
       <section
-        className="w-screen h-screen flex flex-col justify-center items-center p-9 md:items-start md:px-56 bg-cover bg-center"
+        className="w-screen h-screen flex flex-col justify-center items-center p-9 sm:items-start sm:px-24 md:px-32 lg:px-56 bg-cover bg-center"
         style={{ backgroundImage: "url('/hero.png')" }}
       >
         <main className="flex flex-col gap-5 md:gap-6 items-start sm:w-1/2">
