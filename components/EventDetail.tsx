@@ -39,7 +39,7 @@ export default function BlogContent({ data }: BlogContentProps) {
       </div> : <></>
       } 
 <div className='flex justify-center items-center bg-white'>
-<article className="max-w-4xl mx-auto px-4 py-8 absolute bg-slate-50 top-[300px]">
+<article className="md:w-[80%] mx-auto px-4 py-8 absolute bg-slate-50 top-[300px]">
       <h1 className="text-3xl font-bold mb-4">{data.title['en-title']}</h1>
 
       <div className="flex items-center flex-col space-x-4 mb-4">
