@@ -11,7 +11,7 @@ interface eyecatch{
 interface Blog {
   title: any;
   detail: any;
-  price:any;
+  price?:any;
   img:any;
   location:any;
   address:any;
