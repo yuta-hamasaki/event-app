@@ -10,12 +10,12 @@ const StaffCard = ({ staff }: StaffCardProps) => {
 
   return (
     <div
-      className="flex flex-col justify-end bg-cover bg-center text-center rounded-md w-[320px] h-[350px]"
+      className="flex flex-col justify-end bg-cover bg-center text-center rounded-md w-[320px] h-[350px] transition-transform ease-in-out duration-500 hover:-translate-y-3"
       style={{
         backgroundImage: `url(${staff.img})`,
       }}
     >
-      <div className="py-1 text-white bg-gray-800 opacity-70 rounded-b-md">
+      <div className="py-1 text-white bg-gray-800 opacity-70 rounded-b-md ">
         <h3 className="text-2xl font-bold">{staff.name}</h3>
         <p className="text-sm">{staff.role}</p>
       </div>
