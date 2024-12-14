@@ -32,7 +32,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
       {/* Content Section */}
       <div className="flex flex-col justify-center w-full gap-2 sm:w-2/3 md:w-2/3 p-5 md:py-4 px-3 ">
         <div className="flex flex-col justify-between gap-5">
-          {event.price ? (
+          { event.price && event.price.unit_amount > 0 ? (
             <dl className="w-[80px] bg-linkWater rounded-2xl">
               <dd className="text-sm text-gray-500 text-center font-semibold">
                 {(event.price.unit_amount / 100).toLocaleString()}{" "}

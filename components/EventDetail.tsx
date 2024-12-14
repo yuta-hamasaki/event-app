@@ -47,7 +47,7 @@ export default function BlogContent({ data }: BlogContentProps) {
         <div className="font-bold text-slate-700 px-3 py-1">{data.location['en-location']}</div>
         <div className="font-bold text-slate-700 px-3 py-1 rounded-full">{data.address['en-address']}</div>
       </div>
-      {data.price? (
+      {data.price && data.price.unit_amount > 0 ? (
           <p>
             {(data.price.unit_amount / 100).toLocaleString()}
             {data.price.currency.toUpperCase()}
