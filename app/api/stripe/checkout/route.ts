@@ -20,13 +20,14 @@ export async function POST(req: NextRequest) {
     }
 
     const session = await stripe.checkout.sessions.create({
-      customer_creation: 'if_required',
+      // customer_creation: 'if_required',
       line_items: [{
         price: priceId,
         quantity: 1,
       }],
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/success`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/cancel`,
+
+      success_url:  "http://localhost:3000/success",
+      cancel_url: "http://localhost:3000/cancel",
       mode: 'payment',
     });
 
