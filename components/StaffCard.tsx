@@ -6,7 +6,7 @@ type StaffCardProps = {
 };
 
 const StaffCard = ({ staff }: StaffCardProps) => {
-  console.log("staff", staff);
+  // console.log("staff", staff);
 
   return (
     <div
