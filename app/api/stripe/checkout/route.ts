@@ -9,6 +9,7 @@ interface CheckoutRequest {
 
 export async function POST(req: NextRequest) {
   try {
+    const { userId, email } = await req.json();
     const body: CheckoutRequest = await req.json();
     const priceId = body.price_id;
 
@@ -29,9 +30,14 @@ export async function POST(req: NextRequest) {
       success_url:  "http://localhost:3000/success",
       cancel_url: "http://localhost:3000/cancel",
       mode: 'payment',
+      customer_email: email,
+      metadata: {
+        userId,
+      },
     });
 
     return NextResponse.json({ url: session.url });
+    // return NextResponse.json({ sessionId: session.id });
   } catch (error) {
     console.error('Stripe checkout error:', error);
     return NextResponse.json(
