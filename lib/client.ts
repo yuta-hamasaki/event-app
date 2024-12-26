@@ -2,11 +2,11 @@ import { createClient } from 'microcms-js-sdk';
 import { Event } from '@/types/events';
 import Stripe from 'stripe';
 
-interface Product extends Event {
+export interface Product extends Event {
   price?: {
+    id: string;
     unit_amount: number;
     currency: string;
-    id: string;
   };
 }
 

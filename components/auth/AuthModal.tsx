@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Mail, Lock, X,User} from 'lucide-react';
 import Image from 'next/image';
+import { toast, ToastContainer } from 'react-toastify';
 import googleIcon from '@/public/google_icon.png'
 import Button from '../Button';
 
@@ -21,6 +22,20 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
 
     try {
       if (isSignUp) {
+        const { data: existingUser } = await supabase
+        .from('profiles')
+        .select()
+        .eq('email', email)
+        .single();
+
+      if (existingUser) {
+        toast.error('An account with this email already exists.', {
+          position: "top-center",
+          autoClose: 5000
+        });
+        return;
+      }
+
         const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
@@ -34,6 +49,11 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
 
         if (signUpError) throw signUpError;
 
+        toast.success('Registration successful!', {
+          position: "top-center",
+          autoClose: 5000
+        });
+
       } else {
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email,
@@ -41,10 +61,17 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
         });
 
         if (signInError) throw signInError;
+        toast.success('Successfully logged in!', {
+          position: "top-center",
+          autoClose: 3000
+        });
         onClose();
       }
     } catch (err: any) {
-      setError(err.message);
+      toast.error(err.message, {
+        position: "top-center",
+        autoClose: 5000
+      });
     } finally {
       setLoading(false);
     }
@@ -61,6 +88,10 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
       if (error) throw error;
     } catch (err: any) {
       setError(err.message);
+      toast.error(err.message, {
+        position: "top-center",
+        autoClose: 5000
+      });
     }
   };
 
@@ -68,6 +99,7 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <ToastContainer />
       <div className="bg-white rounded-lg p-8 max-w-md w-full relative">
         <button
           onClick={onClose}
