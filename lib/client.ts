@@ -2,11 +2,11 @@ import { createClient } from 'microcms-js-sdk';
 import { Event } from '@/types/events';
 import Stripe from 'stripe';
 
-interface Product extends Event {
+export interface Product extends Event {
   price?: {
+    id: string;
     unit_amount: number;
     currency: string;
-    id: string;
   };
 }
 
@@ -24,6 +24,18 @@ export async function getEvents(): Promise<Product[]> {
 
   const data = await Promise.all(
     contents.map(async (content): Promise<Product> => {
+
+      if(!content.stripe_price_id){
+        console.log(`No stripe_price_id for product ${content.id}`)
+        return {
+          ...content,
+          price: {
+            unit_amount: 0,
+            currency: 'cad', 
+            id: '', 
+          },
+        }
+      }
       try {
         const price = await stripe.prices.retrieve(content.stripe_price_id);
         return {

@@ -9,6 +9,7 @@ interface CheckoutRequest {
 
 export async function POST(req: NextRequest) {
   try {
+    // const { userId, email } = await req.json();
     const body: CheckoutRequest = await req.json();
     const priceId = body.price_id;
 
@@ -20,17 +21,23 @@ export async function POST(req: NextRequest) {
     }
 
     const session = await stripe.checkout.sessions.create({
-      customer_creation: 'if_required',
+      // customer_creation: 'if_required',
       line_items: [{
         price: priceId,
         quantity: 1,
       }],
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/success`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/cancel`,
+
+      success_url:  "http://localhost:3000/success",
+      cancel_url: "http://localhost:3000/",
       mode: 'payment',
+      // customer_email: email,
+      // metadata: {
+      //   userId,
+      // },
     });
 
     return NextResponse.json({ url: session.url });
+    // return NextResponse.json({ sessionId: session.id });
   } catch (error) {
     console.error('Stripe checkout error:', error);
     return NextResponse.json(

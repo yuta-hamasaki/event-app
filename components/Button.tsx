@@ -3,6 +3,8 @@ import React,{ReactNode} from 'react';
 export interface ButtonProps extends React.HTMLAttributes<Element> {
   variant?: 'primary' | 'yellow'| 'square';
   size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export default function Button ({ 
@@ -10,6 +12,8 @@ export default function Button ({
   variant = 'primary', 
   size = 'sm', 
   className = '', 
+  type = 'button',
+  disabled = false,
   ...props 
 }:ButtonProps) {
   // ベースのスタイル
@@ -36,6 +40,7 @@ export default function Button ({
   return (
     <button 
       className={combinedClassName}
+      disabled={disabled}
       {...props}
     >
       {children}

@@ -20,15 +20,25 @@ interface MultiLanguageField<T> {
  
  export interface Event {
   id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  stripe_price_id: string;
-  img: ImageData;
-  title: MultiLanguageField<string>;
-  date: MultiLanguageField<string>;
-  detail: MultiLanguageField<string>;
-  location: MultiLanguageField<string>;
-  address: MultiLanguageField<string>;
- }
+  title: {
+    'en-title': string;
+  };
+  detail: {
+    'en-detail': string;
+  };
+  img: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  location: {
+    'en-location': string;
+  };
+  address: {
+    'en-address': string;
+  };
+  date: {
+    'en-date': string;
+  };
+  stripe_price_id?: string;
+}
