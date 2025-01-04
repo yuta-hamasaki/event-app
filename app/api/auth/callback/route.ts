@@ -15,10 +15,5 @@ export async function GET(request: NextRequest) {
     await supabase.auth.exchangeCodeForSession(code);
   }
 
-  // // If there's a session_id, the user completed Stripe checkout
-  // if (session_id) {
-  //   // You can handle post-payment logic here
-  // }
-
   return NextResponse.redirect(requestUrl.origin);
 }

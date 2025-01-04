@@ -21,7 +21,6 @@ export async function POST(req: NextRequest) {
     }
 
     const session = await stripe.checkout.sessions.create({
-      // customer_creation: 'if_required',
       line_items: [{
         price: priceId,
         quantity: 1,
