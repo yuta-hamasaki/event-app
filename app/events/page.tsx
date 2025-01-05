@@ -1,7 +1,6 @@
 import React from "react";
 import { getEvents } from "@/lib/client";
-import EventCard from "@/components/EventCard";
-import EventSearchBar from "./components/EventSearchBar";
+import EventList from "./components/EventList";
 
 const page = async () => {
   const events = await getEvents();
@@ -11,14 +10,7 @@ const page = async () => {
       <h1 className="text-4xl font-bold font-plus-jakarta-sans tracking-tight">
         Events
       </h1>
-      <div>
-        <EventSearchBar />
-      </div>
-      <div className="w-full flex flex-col items-center">
-        {events.map((event) => {
-          return <EventCard key={event.id} event={event} />;
-        })}
-      </div>
+      <EventList events={events} />
     </section>
   );
 };
