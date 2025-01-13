@@ -1,5 +1,8 @@
 import AccountForm from '@/components/dashboard/dashboardForm'
+import { EventsList } from '@/components/landing/event-list'
+import { getEvents } from '@/lib/client'
 import { createClient } from '@/utils/supabase/server'
+import Tickets from './components/Tickets'
 
 export default async function Account() {
   const supabase = await createClient()
@@ -7,6 +10,8 @@ export default async function Account() {
   const {
     data: { user },
   } = await supabase.auth.getUser()
+
+  const contents = await getEvents();
 
   return (
     <section className="w-full px-9">
@@ -20,6 +25,10 @@ export default async function Account() {
           </h2>
           <p className=" border-b-0.5 py-1 border-gray-400"></p>
           <AccountForm user={user} />
+        </div>
+        <div className='w-full'>
+          <Tickets />
+          <EventsList initialEvents={contents} />
         </div>
       </div>
     </section>
