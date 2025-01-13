@@ -20,10 +20,10 @@ export default async function Account() {
           My Page
         </h1>
         <div className="flex flex-col w-full">
-          <h2 className="font-semibold font-plus-jakarta-sans text-lg">
+          <h2 className="pb-3 font-semibold font-plus-jakarta-sans text-lg">
             Profile
           </h2>
-          <p className=" border-b-0.5 py-1 border-gray-400"></p>
+          <p className="border-b-0.5 border-gray-400"></p>
           <AccountForm user={user} />
         </div>
         <div className='w-full'>

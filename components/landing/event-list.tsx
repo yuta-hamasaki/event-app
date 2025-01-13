@@ -1,9 +1,8 @@
 'use client';
-import Link from 'next/link';
 import Button from "@/components/Button";
 import EventCard from '@/components/EventCard';
 import { Event } from '@/types/events';
-
+import Link from 'next/link';
 
 interface Product extends Event {
   price?: {
@@ -19,7 +18,7 @@ interface EventsListProps {
 export function EventsList({ initialEvents }: EventsListProps) {
   return (
     <>
-      <div className="flex flex-col gap-3 mt-7 justify-center items-center">
+      <div className="flex flex-col gap-5 mt-7">
         {initialEvents.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
