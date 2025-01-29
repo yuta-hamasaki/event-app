@@ -1,22 +1,20 @@
 'use client'
-import { useCallback, useEffect, useState } from 'react'
-import { createClient } from '@/utils/supabase/client'
-import { type User } from '@supabase/supabase-js'
-import {signOut} from "@/app/actions"
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from "zod"
 import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { createClient } from "@/utils/supabase/client";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { type User } from "@supabase/supabase-js";
+import { useCallback, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 export default function DashboardForm({ user }: { user: User | null }) {
   const supabase = createClient()
@@ -50,6 +48,7 @@ export default function DashboardForm({ user }: { user: User | null }) {
   }, [user, supabase])
 
   const handleDelete = () => {
+    // TODO: アカウント削除処理追加
     console.log("delete user info");
   };
 
@@ -82,9 +81,10 @@ export default function DashboardForm({ user }: { user: User | null }) {
     console.log(values);
   }
 
-  if (loading) {
-    return <div>Loading...</div>; // Show a loading state while fetching data
-  }
+  // TODO: バックとの連携が取れるようになればコメント外す
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="form-widget w-full py-3">
@@ -143,10 +143,11 @@ export default function DashboardForm({ user }: { user: User | null }) {
             <div className="flex items-center ">
               <button
                 type="button"
-                className="text-red-500"
+                className="relative text-red-500 group"
                 onClick={handleDelete}
               >
                 Delete Account
+                <span className="absolute left-0 bottom-0 block w-0 h-[1px] bg-red-500 transition-all duration-300 group-hover:w-full"></span>
               </button>
             </div>
             <Button type="submit">Submit</Button>

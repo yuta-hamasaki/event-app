@@ -10,20 +10,20 @@ const Tickets = () => {
     }`;
 
   return (
-    <div className="flex gap-5 w-full border-b-0.5 border-gray-400 pb-3">
-      <button
+    <ul className="flex gap-5 w-full border-b-0.5 border-gray-400 pb-3 cursor-pointer">
+      <li
         className={button(isUpcomingTickets)}
         onClick={() => setIsUpcomingTickets(true)}
       >
         Upcoming
-      </button>
-      <button
+      </li>
+      <li
         className={button(!isUpcomingTickets)}
         onClick={() => setIsUpcomingTickets(false)}
       >
         Past Ticket
-      </button>
-    </div>
+      </li>
+    </ul>
   );
 };
 
