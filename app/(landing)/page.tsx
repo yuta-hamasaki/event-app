@@ -1,11 +1,10 @@
-
-import Link from 'next/link';
-import Button from "@/components/Button";
-import {getEvents} from "@/lib/client"
-import { Event } from '@/types/events';
-import { Hero } from '@/components/landing/hero';
-import { EventsList } from '@/components/landing/event-list';
+import Button from '@/components/Button';
 import { AboutUs } from '@/components/landing/about-us';
+import { EventsList } from '@/components/landing/event-list';
+import { Hero } from '@/components/landing/hero';
+import { getEvents } from "@/lib/client";
+import { Event } from '@/types/events';
+import Link from "next/link";
 
 interface Product extends Event {
   price?: {
@@ -21,7 +20,7 @@ export default async function page() {
     <>
       <div className="flex flex-col items-center">
         {/* hero */}
-        <Hero/>
+        <Hero />
         {/* Event section */}
         <section className="w-full px-9">
           <div className="flex flex-col items-center gap-2 pt-16">
@@ -33,13 +32,16 @@ export default async function page() {
             </p>
           </div>
           {/* event cards */}
-          <EventsList
-          initialEvents={contents}
-          />
+          <div className="mx-auto md:max-w-[720px] max-w-none w-full">
+            <EventsList initialEvents={contents} />
+            <Link href={`/events`} className="flex justify-center pb-20">
+              <Button variant="yellow">View All</Button>
+            </Link>
+          </div>
         </section>
 
         {/* About us */}
-        <AboutUs/>
+        <AboutUs />
       </div>
     </>
   );
